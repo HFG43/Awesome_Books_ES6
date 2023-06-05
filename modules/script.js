@@ -1,6 +1,4 @@
-// const { DateTime } = require("luxon");
-import Book from './modules/book.js';
-import addBooks from './modules/addBook.js';
+import Book from './book.js';
 
 class BookList {
   constructor() {
@@ -108,7 +106,6 @@ class BookList {
 
   removeBook(event) {
     const bookIndex = event.target.dataset.index;
-    
     this.books.splice(bookIndex, 1);
     localStorage.setItem('book', JSON.stringify(this.books));
     this.displayBooks();
