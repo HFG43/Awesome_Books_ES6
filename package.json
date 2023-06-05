@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/HFG43/Awesome_Books_ES6/issues"
   },
-  "homepage": "https://github.com/HFG43/Awesome_Books_ES6#readme"
+  "homepage": "https://github.com/HFG43/Awesome_Books_ES6#readme",
+  "dependencies": {
+    "luxon": "^3.3.0"
+  }
 }
