@@ -1,7 +1,7 @@
 * {
-    margin: 5px 5px;
-    font-family: 'Lato', sans-serif;
-    text-decoration: none;
+  margin: 5px 5px;
+  font-family: 'Lato', sans-serif;
+  text-decoration: none;
 }
 
 #nav-bar {
@@ -71,6 +71,10 @@ button {
   box-shadow: 3px 3px;
 }
 
+.contact-list li {
+  align-self: center;
+}
+
 .list-container li:nth-child(odd) {
   background-color: #c2d3ef;
 }
@@ -84,61 +88,57 @@ button {
   margin-left: 42.5%;
   margin-top: 36px;
 }
-  
+
 .input-container {
   margin-left: 35%;
   margin-right: 35%;
   display: flex;
   flex-direction: column;
 }
-  
+
 .inputs {
   width: 100%;
   border: solid 2px black;
   padding: 5px;
 }
-  
+
 .button {
   display: flex;
   justify-content: flex-end;
 }
-  
+
 #contact-section {
   text-align: center;
 }
-  
+
 #contact-section p,
 #contact-section ul {
   margin-bottom: 12px;
 }
- 
+
 .contact-list {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-  
-.contact-list li {
-  align-self: center;
-}
-  
+
 .hidden {
   display: none;
 }
-  
+
 .active {
   display: block;
 }
-  
+
 #date {
   text-align: right;
 }
-  
+
 #div-list h2 {
   text-align: center;
   margin-bottom: 25px;
 }
-  
+
 .copyright {
   position: absolute;
   top: 90%;
@@ -147,10 +147,9 @@ button {
   margin-right: 1.5%;
   border: 2px solid black;
 }
-  
+
 @media (min-width: 768px) {
   .copyright {
     padding-left: 50px;
   }
 }
- 
