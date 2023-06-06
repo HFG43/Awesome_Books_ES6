@@ -18,7 +18,7 @@ class BookList {
 
   displayTime = () => {
     const dateContainer = document.getElementById('date');
-    let time = DateTime.now();
+    let time = DateTime.now().toFormat('LLL dd, yyyy - hh:mm');
     dateContainer.textContent = time;
   }
 
