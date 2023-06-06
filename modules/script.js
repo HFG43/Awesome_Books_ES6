@@ -1,4 +1,29 @@
 import Book from './book.js';
+// import  from './sections.js';
+
+const listButton = document.getElementById('list');
+const listSection = document.getElementById('book-list');
+listButton.addEventListener('click', () => {
+    listSection.classList.remove('hidden');
+    newSection.classList.add('hidden');
+    contactSection.classList.add('hidden');
+});
+
+const newButton = document.getElementById('new');
+const newSection = document.getElementById('form-section');
+newButton.addEventListener('click', () => {
+   newSection.classList.remove('hidden');
+   listSection.classList.add('hidden');
+   contactSection.classList.add('hidden');
+});
+
+const contactButton = document.getElementById('contact');
+const contactSection = document.getElementById('contact-section');
+contactButton.addEventListener('click', () => {
+    contactSection.classList.remove('hidden');
+    newSection.classList.add('hidden');
+    listSection.classList.add('hidden');
+});
 
 class BookList {
   constructor() {
@@ -6,8 +31,6 @@ class BookList {
     this.inputTitle = document.getElementById('title');
     this.inputAuthor = document.getElementById('author');
     this.inputButton = document.getElementById('add-button');
-    this.listButton = document.getElementById('contact-section');
-    this.newButton = document.getElementById('form-section');
     this.books = JSON.parse(localStorage.getItem('book')) || [];
     this.inputButton.addEventListener('click', (event) => this.addBooks(event));
     this.displayBooks();
@@ -15,10 +38,6 @@ class BookList {
     this.listLink = document.getElementById('list');
     this.addLink = document.getElementById('new');
     this.contactLink = document.getElementById('contact');
-
-    this.listLink.addEventListener('click', () => this.showSection('div-list'));
-    this.addLink.addEventListener('click', () => this.showSection('form-section'));
-    this.contactLink.addEventListener('click', () => this.showSection('contact-section'));
 
     this.displayDate();
   }
@@ -35,19 +54,6 @@ class BookList {
     this.displayBooks();
     this.inputAuthor.value = '';
     this.inputTitle.value = '';
-  }
-
-  showSection = (sectionId) => {
-    const sections = document.getElementsByClassName('list-section');
-
-    for (let i = 0; i < sections.length; i += 1) {
-      const content = sections[i];
-      if (content.id === sectionId) {
-        content.classList.remove('hidden');
-      } else {
-        content.classList.add('hidden');
-      }
-    }
   }
 
   displayDate = () => {
