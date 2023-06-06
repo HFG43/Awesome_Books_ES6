@@ -1,7 +1,6 @@
 import Book from './book.js';
-import {DateTime} from './luxon.js';
-import {listButton, listSection, newButton, newSection, contactButton, contactSection} from './sections.js';
-
+import { DateTime } from './luxon.js';
+import './sections.js';
 
 class BookList {
   constructor() {
@@ -11,7 +10,7 @@ class BookList {
     this.inputButton = document.getElementById('add-button');
     this.books = JSON.parse(localStorage.getItem('book')) || [];
     this.inputButton.addEventListener('click', (event) => this.addBooks(event));
-    
+
     this.displayBooks();
 
     this.displayTime();
@@ -19,7 +18,7 @@ class BookList {
 
   displayTime = () => {
     const dateContainer = document.getElementById('date');
-    let time = DateTime.now().toFormat('EEEE dd LLLL, yyyy - hh:mm');
+    const time = DateTime.now().toFormat('EEEE dd LLLL, yyyy - hh:mm');
     dateContainer.textContent = time;
   }
 
