@@ -11,6 +11,7 @@ class BookList {
     this.inputButton = document.getElementById('add-button');
     this.books = JSON.parse(localStorage.getItem('book')) || [];
     this.inputButton.addEventListener('click', (event) => this.addBooks(event));
+    
     this.displayBooks();
 
     this.displayTime();
@@ -18,7 +19,7 @@ class BookList {
 
   displayTime = () => {
     const dateContainer = document.getElementById('date');
-    let time = DateTime.now().toFormat('LLL dd, yyyy - hh:mm');
+    let time = DateTime.now().toFormat('EEEE dd LLLL, yyyy - hh:mm');
     dateContainer.textContent = time;
   }
 
