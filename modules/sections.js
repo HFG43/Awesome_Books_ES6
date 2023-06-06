@@ -21,3 +21,5 @@ contactButton.addEventListener('click', () => {
     newSection.classList.add('hidden');
     listSection.classList.add('hidden');
 });
+
+export { listButton, listSection, newButton, newSection, contactButton, contactSection };

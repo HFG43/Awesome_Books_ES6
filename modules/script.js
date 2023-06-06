@@ -1,29 +1,7 @@
 import Book from './book.js';
-// import  from './sections.js';
+import {DateTime} from './luxon.js';
+import {listButton, listSection, newButton, newSection, contactButton, contactSection} from './sections.js';
 
-const listButton = document.getElementById('list');
-const listSection = document.getElementById('book-list');
-listButton.addEventListener('click', () => {
-    listSection.classList.remove('hidden');
-    newSection.classList.add('hidden');
-    contactSection.classList.add('hidden');
-});
-
-const newButton = document.getElementById('new');
-const newSection = document.getElementById('form-section');
-newButton.addEventListener('click', () => {
-   newSection.classList.remove('hidden');
-   listSection.classList.add('hidden');
-   contactSection.classList.add('hidden');
-});
-
-const contactButton = document.getElementById('contact');
-const contactSection = document.getElementById('contact-section');
-contactButton.addEventListener('click', () => {
-    contactSection.classList.remove('hidden');
-    newSection.classList.add('hidden');
-    listSection.classList.add('hidden');
-});
 
 class BookList {
   constructor() {
@@ -35,14 +13,16 @@ class BookList {
     this.inputButton.addEventListener('click', (event) => this.addBooks(event));
     this.displayBooks();
 
-    this.listLink = document.getElementById('list');
-    this.addLink = document.getElementById('new');
-    this.contactLink = document.getElementById('contact');
-
-    this.displayDate();
+    this.displayTime();
   }
 
-  addBooks(event) {
+  displayTime = () => {
+    const dateContainer = document.getElementById('date');
+    let time = DateTime.now();
+    dateContainer.textContent = time;
+  }
+
+  addBooks = (event) => {
     event.preventDefault();
     const title = this.inputTitle.value;
     const author = this.inputAuthor.value;
@@ -56,28 +36,7 @@ class BookList {
     this.inputTitle.value = '';
   }
 
-  displayDate = () => {
-    const dateElement = document.getElementById('date');
-
-    const updateTime = () => {
-      const today = new Date();
-      const options = {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric',
-      };
-      const format = today.toLocaleTimeString('en-US', options);
-
-      dateElement.textContent = format;
-    };
-    updateTime();
-    setInterval(updateTime, 1000);
-  }
-
-  displayBooks() {
+  displayBooks = () => {
     this.bookList.innerHTML = '';
     const list = document.createElement('ul');
     list.classList.add('list-container');
@@ -103,14 +62,14 @@ class BookList {
     this.attachRemoveButtonListeners();
   }
 
-  attachRemoveButtonListeners() {
+  attachRemoveButtonListeners = () => {
     const removeButtons = document.querySelectorAll("button[id^='remove-button-']");
     removeButtons.forEach((button) => {
       button.addEventListener('click', this.removeBook.bind(this));
     });
   }
 
-  removeBook(event) {
+  removeBook = (event) => {
     const bookIndex = event.target.dataset.index;
     this.books.splice(bookIndex, 1);
     localStorage.setItem('book', JSON.stringify(this.books));
